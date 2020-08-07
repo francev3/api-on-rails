@@ -4,7 +4,7 @@ class SessionsController < Devise::SessionsController
 	respond_to :json
 
 	def create
-    resource = User.find_for_database_authentication(:email => params[:email])
+    resource = User.find_for_database_authentication(:username => params[:username])
     return failure unless resource
 
     if resource.valid_password?(params[:password])
@@ -18,7 +18,7 @@ class SessionsController < Devise::SessionsController
   end
 
   def failure
-    return render json: { ok: false, errors: 'Correo electrónico o contraseña no válidos'}, :status => :unauthorized
+    return render json: { ok: false, errors: 'Usuario o contraseña no válidos'}, :status => :unauthorized
   end
 
 
