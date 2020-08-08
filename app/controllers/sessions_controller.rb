@@ -1,5 +1,6 @@
 class SessionsController < Devise::SessionsController
 	include Devise::Controllers::Helpers
+	skip_before_action :authenticate_user!, only: [:create]
 	prepend_before_action :require_no_authentication, only: [:create]
 	respond_to :json
 
@@ -9,8 +10,6 @@ class SessionsController < Devise::SessionsController
 
     if resource.valid_password?(params[:password])
 			sign_in(resource_name, resource)
-			yield resource if block_given? 
-
       render :json=> {ok: true, token: current_token}
       return
     end
@@ -18,7 +17,7 @@ class SessionsController < Devise::SessionsController
   end
 
   def failure
-    return render json: { ok: false, errors: 'Usuario o contraseña no válidos'}, :status => :unauthorized
+    return render json: { ok: false, message: I18n.t('devise.failure.not_found_in_database')}, :status => :unauthorized
   end
 
 

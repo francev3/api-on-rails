@@ -5,4 +5,8 @@ Rails.application.routes.draw do
     delete '/logout', to: 'sessions#destroy'
   end
 
+
+  get 'user/:id', to: 'user#show'
+  put 'user/:id', to: 'user#update'
+
 end
