@@ -32,6 +32,18 @@ module ApiOnRails
     # Only loads a smaller set of middleware suitable for API only apps.
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
+
+    config.i18n.enforce_available_locales = false
+    config.i18n.available_locales = [:es, :en]
+    config.i18n.default_locale = :es
+    I18n.enforce_available_locales = false
+    I18n.locale = :es
+    
+
+    config.exceptions_app = ->(env) { ActionDispatch::CustomPublicExceptions.new(Rails.public_path).call(env) }
+    
     config.api_only = true
+
+    
   end
 end
