@@ -36,3 +36,5 @@ en:
    user_policy:
      update?: 'You cannot edit this user!'
      show?: 'You cannot see this user!'
+  
+  not_found: "User not found."

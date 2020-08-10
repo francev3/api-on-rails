@@ -234,3 +234,10 @@ es:
       long: "%A, %d de %B de %Y a las %I:%M %p"
       short: "%d de %b a las %H:%M hrs"
     pm: pm
+
+  not_found: "Usuario no encontrado."
+  pundit:
+   default: 'No puedes realizar esta acción.'
+   user_policy:
+     update?: 'No puedes editar esta usuario!'
+     show?: 'No puedes ver a este usuario!'
