@@ -1,6 +1,6 @@
 FROM ruby:2.7-alpine3.11
 
-ENV BUNDLER_VERSION=2.1.2
+ENV BUNDLER_VERSION=2.1.4
 
 RUN apk add --update --no-cache \
     binutils-gold \
@@ -26,7 +26,7 @@ RUN apk add --update --no-cache \
     tzdata \
     sqlite-dev
 
-RUN gem install bundler -v 2.1.2
+RUN gem install bundler -v 2.1.4
 
 WORKDIR /app
 

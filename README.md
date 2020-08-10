@@ -1,24 +1,38 @@
-# README
+# API ON RAILS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Instalacion
+Dentro de la carpeta raiz api-on-rails ejecutar:
+```bash
+$ docker-compose up -d
+$ docker-compose exec app bundle exec rake db:setup db:migrate
+```
 
-Things you may want to cover:
+### Ejecutar los tests:
+```sh
+$ docker-compose exec app rails db:test:purge
+$ docker-compose exec app bundle exec rails spec
+```
 
-* Ruby version
+### API
+POST /api/v1/login
+| VALOR | DESCRIPCION |
+| ------ | ------ |
+| username | Nombre de usuario a loguear |
+| password | Contrasena del usuario a loguear |
 
-* System dependencies
+GET /api/v1/user/:id
 
-* Configuration
+PUT /api/v1/user/:id
+| VALOR | DESCRIPCION |
+| ------ | ------ |
+| username | Nombre de usuario del usuario |
+| email | Correo del usuario  |
+| password | Contrasena |
+| role | {1,2,3} |
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Usuarios
+| ID | USERNAME | PASSWORD |
+| ------ | ------ | ------ |
+| 1 | administrador | 123456 |
+| 2 | usuariorol1 | 123456 |
+| 3 | usuariorol2 | 123456 |
