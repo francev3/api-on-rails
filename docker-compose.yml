@@ -12,6 +12,7 @@ services:
       - gem_cache:/usr/local/bundle/gems
     environment:
       RAILS_ENV: development
+      DEVISE_JWT_SECRET_KEY: modify_me
 
 volumes:
   gem_cache:
